@@ -1,0 +1,40 @@
+#创建复选框
+- [ ] Turn on GitHub Pages
+- [ ] Outline my portfolio
+- [ ] Introduce myself to the world
+
+#添加标题
+## title
+### title
+
+#添加链接
+[GitHub](http://github.com)
+
+#添加列表
+有序列表：
+1. Item 1
+2. Item 2
+3. Item 3
+   1. Item 3a
+   2. Item 3b
+
+无序列表：(-)也可以
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+
+
+#添加表情符号：
+:tada:
+:smile:
+:heart:
+:+1:
+
+#强调
+*xinghaoqiangdiao*
+_xiahuaxianqiangdiao_
+斜体
+**shuangxingqiangdiao**
+__shuangxiahuaxianqiangdiao__
+加粗

@@ -1,0 +1,89 @@
+﻿git工作流程：1在工作目录中添加，修改文件
+			2将需要进行版本管理的文件放入暂存区域
+			3将暂存区域的文件提交到git仓库
+
+git管理的文件有三种状态：
+			已修改（modified）
+			已暂存（staged）
+			已提交（committed）
+
+命令行：
+在指定文件夹 git init 初始化
+git add README.md(文件名) #add是从工作区添加到暂存区
+git commit -m "add a readme file"（你干了啥）#commit是从暂存区添加到仓库
+
+查看状态：
+git status 
+
+查看历史提交：
+git log
+
+回滚命令：
+git reset HEAD~10  #reset是从仓库回滚到暂存区 波浪线指上一个,数字指上几个
+
+git reset --mixed(DEFAULT) HEAD~ mixed有两个操作：
+一是移动HEAD指向上一个快照
+二是将HEAD移动后指向的快照回滚到暂存区域
+
+git reset --soft HEAD~ soft移动HEAD的指向，将其指向上一个快照，一般用于提交仓库后后悔不想要这个版本的备份
+
+git reset --hard HEAD~ hard将HEAD移动后指向的	快照回滚到暂存区域，将暂存区域的文件还原到工作目录
+
+git reset +hash前5位左右 
+
+git reset 快照 文件名/路径  #此时指针不会移动
+
+git reflog 查看所有仓库操作和历史hash值
+
+
+
+
+git checkout HEAD #checkout是从暂存区回滚到工作区
+git checkout HEAD~ 文件名 #拷贝文件到工作区
+
+查看版本比较：
+git diff 默认工作区和暂存区比较 H查看帮助文档操作
+git diff 快照1ID  快照2ID
+git diff 快照ID 比较工作区和某快照
+git diff HEAD 比较工作区和某快照
+git diff --cached  比较暂存区和当前快照
+git diff --cached 快照ID 比较暂存区和某快照
+
+修改最后一次提交：
+git commit --amend
+
+删除文件：
+git rm 文件名
+
+重命名文件：
+git mv 就文件名 新文件名
+
+创建分支：
+git branch 分支名
+切换分支：
+git checkout 分支名
+显示所有分支快照：
+git log --oneline --all --graph
+
+合并分支：
+git merge 分支名  #把其他分支合并到当前分支 #有相同文件会提示冲突，在文件中修改冲突后，重新提交文件到缓存区，到仓库，可合并分支并形成一个新的快照存在当前分支下
+删除分支：
+git branch --delete 分支名
+
+如果要回滚到之前的版本并且还想保留现在的内容,可以创建一个新的分支，如master1，master2等 具体命令如下：
+git checkout hash #将HEAD移到回滚的区域
+git checkout -b 分支名 #创建一个新分支并且HEAD指向他
+
+或者：
+git checkout -b 分支名
+git reset --hard hash #将新分支的指针连同HEAD拉回到你想要的回滚
+
+reset不加hard更灵活 具体哪种方式更好，自己衡量
+
+上传到github：
+git init 
+git remote add origin https://github.com/Joyphy/仓库名.git
+git add
+git commit -m
+git push -u origin master
+git niubi
